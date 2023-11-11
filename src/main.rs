@@ -1,29 +1,11 @@
 
-struct Space {
-    dug: bool,
-    mine: bool
-}
-
-impl Space {
-
-    fn new() -> Self {
-        return Space{dug: false, mine: false}
-    }
-
-    fn dig(mut self) {
-        if !self.dug { //mine has not yet been dug
-            if self.mine{
-                //you lose
-            } else {
-                self.dug = true;
-            }
-        }
-    }
-}
-
-
-
+pub mod screen_info;
+pub mod minesweeper_utils;
+use minesweeper_utils::*;
 
 fn main() {
-    println!("Hello, world!");
+    let mut grid = Grid::new(5 as u8, 30 as u8);
+    grid.stdout();
+    grid.mineatize(3 as u8, 8 as u8);
+    grid.stdout();
 }
